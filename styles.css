@@ -196,7 +196,7 @@ footer p { margin: 0; max-width: 530px; line-height: 1.5; }
 
 @media (max-width: 620px) {
   .site-header { min-height: 64px; }
-  .site-header nav a:not(:last-child) { display: none; }
+  .site-header nav a:not(:first-child):not(:last-child) { display: none; }
   .hero { min-height: 0; padding-top: 72px; }
   h1 { font-size: clamp(52px, 16vw, 72px); }
   .proof-ticket { width: 84%; box-shadow: 12px 12px 0 var(--blue); }

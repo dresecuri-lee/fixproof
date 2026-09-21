@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "check": "node --check app.js && node --check core.js",
+    "check": "node --check app.js && node --check core.js && node --check repair.js && node --check repair-core.js && node --check repair-frame.js",
     "serve": "python3 -m http.server 3020 --bind 127.0.0.1"
   }
 }

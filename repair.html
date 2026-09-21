@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e8">
+  <title>Repair your page — FixProof</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./repair.css">
+  <script type="module" src="./repair.js"></script>
+</head>
+<body>
+  <a class="skip" href="#work">Skip to editors</a>
+  <header class="site-header"><a class="brand" href="./index.html">▣ FixProof</a><nav aria-label="Primary"><a href="./index.html">Three demo cases</a><span>LOCAL REPAIR LAB</span></nav></header>
+  <main>
+    <section class="intro"><p class="eyebrow">02 / YOUR PAGE</p><h1>Repair your <em>responsive layout.</em></h1><p>Paste local HTML and optional CSS. Analyze actual layout at four browser widths, inspect a conservative patch, then download a sanitized layout copy.</p><p class="notice">This is a local HTML/CSS subset, not a full-site importer. Scripts and external resources are removed or blocked. The sanitized preview may differ from your original page. No URL import or network service is used by this tool.</p></section>
+    <section id="work" class="work" aria-labelledby="work-title"><div class="section-title"><p class="eyebrow">INPUT / 01</p><h2 id="work-title">Bring a layout problem.</h2></div>
+      <div class="input-actions"><button id="example" type="button">Load broken example</button><label class="file-button" for="html-file">Choose .html file</label><input id="html-file" type="file" accept=".html,text/html"><span id="file-name">No file selected</span></div>
+      <div class="editors"><div><label for="html-editor">HTML <span>required, max 200 KB</span></label><textarea id="html-editor" spellcheck="false" placeholder="<main>…</main>"></textarea></div><div><label for="css-editor">CSS <span>optional, max 100 KB</span></label><textarea id="css-editor" spellcheck="false" placeholder=".card { width: 520px; }"></textarea></div></div>
+      <div class="run-actions"><label class="check"><input id="stress" type="checkbox"> Stress first heading with synthetic long text</label><button id="analyze" class="primary" type="button">Analyze layout →</button></div>
+      <p id="status" class="status" role="status" aria-live="polite">Ready. Load the example or enter HTML, then choose Analyze layout.</p>
+    </section>
+    <section id="results" class="results" aria-labelledby="results-title" hidden><div class="section-title"><p class="eyebrow">MEASURE / 02</p><h2 id="results-title">Observed in this browser.</h2></div>
+      <p id="mode-note"></p><p id="summary" class="summary"></p><div class="measure-wrap"><table><caption>Rendered document widths in CSS pixels</caption><thead><tr><th scope="col">Viewport</th><th scope="col">Before</th><th scope="col">Patched</th><th scope="col">Result</th></tr></thead><tbody id="measure-body"></tbody></table></div>
+      <div class="detail-grid"><section><h3>Identified culprits</h3><div id="culprits"></div></section><section><h3>Exact CSS patch</h3><p id="patch-explanation"></p><pre id="patch"></pre></section></div>
+      <div class="preview-heading"><div><p class="eyebrow">COMPARE / 03</p><h2>Same sanitized page. Two states.</h2></div><div class="width-controls"><label for="width-select">CSS viewport</label><select id="width-select"><option value="320">320px</option><option value="390" selected>390px</option><option value="768">768px</option><option value="1280">1280px</option></select><label for="width-slider">Fine width <output id="width-output" for="width-slider">390px</output></label><input id="width-slider" type="range" min="320" max="1280" value="390"></div></div>
+      <p class="preview-note">Frames are scaled to fit. The label shows each frame's actual CSS viewport width. Red outlines mark identified elements without changing layout.</p><div class="previews"><article><h3>Before <span class="frame-width">390px CSS viewport</span></h3><div id="before-stage" class="stage"></div></article><article><h3>Patched <span class="frame-width">390px CSS viewport</span></h3><div id="after-stage" class="stage"></div></article></div>
+      <div class="export"><p id="removal-note"></p><button id="download-html" type="button">Download sanitized HTML</button><button id="download-css" type="button">Download CSS patch</button><button id="download-json" type="button">Download JSON report</button></div>
+    </section>
+  </main><footer><span>FixProof / local browser tool</span><a href="./index.html">Back to demo cases ↑</a></footer>
+</body></html>
