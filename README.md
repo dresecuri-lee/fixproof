@@ -1,8 +1,12 @@
 # FixProof
 
-**[Run the interactive demo](https://dresecuri-lee.github.io/fixproof/) | [Inspect a real browser report](evidence/browser-run.json)**
+**[Run the interactive demo](https://dresecuri-lee.github.io/fixproof/) | [Watch the 20-second tour](https://dresecuri-lee.github.io/fixproof/media/fixproof-walkthrough.mp4) | [Inspect a real browser report](evidence/browser-run.json)**
 
 Don't take my word. Run the fix.
+
+[![FixProof interactive repair lab preview](media/preview.png)](https://dresecuri-lee.github.io/fixproof/)
+
+The video combines actual captured demo states, with captions. It is not real-time benchmark playback.
 
 FixProof is a dependency-free static portfolio app for demonstrating small web repairs with browser-observed evidence. It contains three original synthetic cases: an over-rendered 6,000-item catalog, a 390px mobile overflow, and a local form with a dead button.
 
