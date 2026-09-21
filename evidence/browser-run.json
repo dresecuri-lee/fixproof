@@ -1,0 +1,139 @@
+{
+  "schema": "https://github.com/dresecuri-lee/fixproof/blob/main/README.md#evidence-report",
+  "fixtureVersion": "fixproof-synthetic-v1",
+  "generatedAt": "2026-09-21T20:18:26.274Z",
+  "status": "completed",
+  "sampleCount": 5,
+  "methodology": "Local synthetic fixtures. Heavy-page DOM update and two-frame-aligned elapsed figures are medians from five alternating before/fixed runs measured with performance.now in a hidden measurement container. Search parity is asserted on rendered fixture DOM. Mobile layout uses the same fixture markup as the preview at a 390px CSS viewport. Form checks dispatch real clicks.",
+  "limitations": "Frame-aligned elapsed time is not a paint-completion metric. These figures are not Lighthouse or Web Vitals. Timing depends on the current browser, device load, extensions, visibility, and power state. No network submission is tested.",
+  "environment": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36",
+    "language": "ko",
+    "viewport": {
+      "width": 1440,
+      "height": 1000,
+      "devicePixelRatio": 1
+    }
+  },
+  "timings": {
+    "heavyPage": {
+      "before": {
+        "medianDomUpdateMs": 7.3,
+        "medianFrameAlignedElapsedMs": 53.8,
+        "domNodes": 6000,
+        "samples": [
+          {
+            "domUpdateMs": 8.7,
+            "frameAlignedElapsedMs": 69.1,
+            "domNodes": 6000,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 6.1,
+            "frameAlignedElapsedMs": 49.8,
+            "domNodes": 6000,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 7,
+            "frameAlignedElapsedMs": 53.4,
+            "domNodes": 6000,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 7.5,
+            "frameAlignedElapsedMs": 65.5,
+            "domNodes": 6000,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 7.3,
+            "frameAlignedElapsedMs": 53.8,
+            "domNodes": 6000,
+            "searchableItems": 6000
+          }
+        ]
+      },
+      "fixed": {
+        "medianDomUpdateMs": 0.1,
+        "medianFrameAlignedElapsedMs": 15.5,
+        "domNodes": 18,
+        "samples": [
+          {
+            "domUpdateMs": 0.1,
+            "frameAlignedElapsedMs": 2.5,
+            "domNodes": 18,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 0.2,
+            "frameAlignedElapsedMs": 15.5,
+            "domNodes": 18,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 0.1,
+            "frameAlignedElapsedMs": 14.5,
+            "domNodes": 18,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 0,
+            "frameAlignedElapsedMs": 16.1,
+            "domNodes": 18,
+            "searchableItems": 6000
+          },
+          {
+            "domUpdateMs": 0.1,
+            "frameAlignedElapsedMs": 22,
+            "domNodes": 18,
+            "searchableItems": 6000
+          }
+        ]
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "heavy-page",
+      "name": "Heavy page",
+      "beforeBugReproduced": true,
+      "fixedPass": true,
+      "status": "passed",
+      "finding": "6,000 DOM cards before, 18 after; search count and visible label order match."
+    },
+    {
+      "id": "mobile-overflow",
+      "name": "Mobile overflow",
+      "beforeBugReproduced": true,
+      "fixedPass": true,
+      "status": "passed",
+      "finding": "130px horizontal overflow before, 0px after.",
+      "measurements": {
+        "before": {
+          "scrollWidth": 520,
+          "clientWidth": 390,
+          "overflowPx": 130
+        },
+        "fixed": {
+          "scrollWidth": 390,
+          "clientWidth": 390,
+          "overflowPx": 0
+        }
+      }
+    },
+    {
+      "id": "dead-button",
+      "name": "Dead button",
+      "beforeBugReproduced": true,
+      "fixedPass": true,
+      "status": "passed",
+      "finding": "No before response; fixed form validates empty input and confirms valid input.",
+      "measurements": {
+        "beforeMessage": "Waiting for an action.",
+        "validationMessage": "Add a short bug description first.",
+        "successMessage": "Request checked. Copy it into your message."
+      }
+    }
+  ]
+}

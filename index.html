@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="FixProof is an interactive before-and-after lab for small website repairs.">
+    <meta name="theme-color" content="#f4f0e8">
+    <title>FixProof — Run the fix</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="./styles.css">
+    <script type="module" src="./app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#lab">Skip to the lab</a>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="FixProof home">
+        <svg aria-hidden="true" viewBox="0 0 34 34"><path d="M4 4h26v26H4zM10 10h14v5h-8v3h7v5h-7v5h-6z"/></svg>
+        <span>FixProof</span>
+      </a>
+      <nav aria-label="Primary navigation">
+        <a href="#lab">The lab</a>
+        <a href="#method">Method</a>
+        <a href="https://github.com/dresecuri-lee/fixproof" target="_blank" rel="noreferrer">Source <span aria-hidden="true">↗</span></a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span class="pulse-dot"></span> Interactive repair lab</p>
+          <h1 id="hero-title">Don’t take my word.<br><em>Run the fix.</em></h1>
+          <p class="hero-deck">Three intentional bugs. Real checks in your browser. See the break, inspect the repair, then export the evidence.</p>
+          <div class="hero-actions">
+            <button class="button button-primary" type="button" data-run-all>
+              <span>Run all checks</span><span aria-hidden="true">→</span>
+            </button>
+            <a class="button button-secondary" href="https://github.com/dresecuri-lee/fixproof" target="_blank" rel="noreferrer">View source <span aria-hidden="true">↗</span></a>
+          </div>
+          <p class="hero-note">Runs locally. Sends nothing. Results begin pending.</p>
+        </div>
+        <div class="hero-visual" aria-label="A visual summary of three repair checks">
+          <div class="proof-ticket">
+            <div class="ticket-top"><span>FIXPROOF / 001</span><span>LOCAL ONLY</span></div>
+            <svg class="ticket-mark" viewBox="0 0 180 150" aria-hidden="true">
+              <path class="mark-grid" d="M1 1h178v148H1zM1 38h178M1 75h178M1 112h178M45 1v148M90 1v148M135 1v148"/>
+              <path class="mark-check" d="m37 78 31 28 75-72"/>
+            </svg>
+            <div class="ticket-list"><span>01 PERFORMANCE</span><span>02 RESPONSIVE</span><span>03 FUNCTION</span></div>
+            <div class="ticket-stamp">UNVERIFIED<br>UNTIL RUN</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="lab-section" id="lab" aria-labelledby="lab-title">
+        <div class="section-heading">
+          <div><p class="section-index">01 / THE LAB</p><h2 id="lab-title">Break it. Fix it. Prove it.</h2></div>
+          <div class="run-state pending" id="run-state" role="status" aria-live="polite"><span></span><strong>Pending</strong></div>
+        </div>
+
+        <div class="lab-shell">
+          <aside class="case-nav" aria-label="Repair cases">
+            <button class="case-tab is-active" type="button" data-case="heavy" aria-selected="true">
+              <span class="case-number">01</span><span><strong>Heavy page</strong><small>6,000 items</small></span><span aria-hidden="true">↗</span>
+            </button>
+            <button class="case-tab" type="button" data-case="overflow" aria-selected="false">
+              <span class="case-number">02</span><span><strong>Mobile overflow</strong><small>390px viewport</small></span><span aria-hidden="true">↗</span>
+            </button>
+            <button class="case-tab" type="button" data-case="button" aria-selected="false">
+              <span class="case-number">03</span><span><strong>Dead button</strong><small>Local form</small></span><span aria-hidden="true">↗</span>
+            </button>
+            <button class="walkthrough-button" id="walkthrough" type="button"><span class="play-icon" aria-hidden="true">▶</span><span>Play walkthrough</span><small>≈ 30 sec</small></button>
+          </aside>
+
+          <div class="case-workspace">
+            <div class="case-intro">
+              <div><p class="case-kicker" id="case-kicker">CASE 01 / DOM WEIGHT</p><h3 id="case-title">The page that renders everything.</h3></div>
+              <p id="case-description">The broken catalog mounts every item. The repair keeps all 6,000 searchable, while only a bounded page reaches the DOM.</p>
+            </div>
+            <div class="walkthrough-caption" id="walkthrough-caption" aria-live="polite" hidden></div>
+            <div class="comparison" id="comparison" aria-live="polite"></div>
+          </div>
+        </div>
+
+        <div class="results-panel" id="results">
+          <div class="results-copy">
+            <p class="section-index">LIVE EVIDENCE</p>
+            <h3 id="results-title">Ready when you are.</h3>
+            <p id="results-summary">Run all three browser checks to replace pending states with observed findings.</p>
+          </div>
+          <div class="result-cards" id="result-cards">
+            <article class="result-card" data-result="heavy-page"><span>01</span><strong>Heavy page</strong><p>Pending</p></article>
+            <article class="result-card" data-result="mobile-overflow"><span>02</span><strong>Mobile overflow</strong><p>Pending</p></article>
+            <article class="result-card" data-result="dead-button"><span>03</span><strong>Dead button</strong><p>Pending</p></article>
+          </div>
+          <section class="timing-summary" id="timing-summary" aria-label="Heavy page timing from the last browser run" aria-live="polite">
+            <div class="timing-heading"><span>HEAVY PAGE / LAST RUN</span><span id="timing-status">Pending</span></div>
+            <div class="timing-table">
+              <span></span><span class="timing-side timing-before">BEFORE</span><span class="timing-side timing-fixed">FIXED</span>
+              <span class="timing-metric">Median DOM update</span><strong id="timing-before-dom">Pending</strong><strong id="timing-fixed-dom">Pending</strong>
+              <span class="timing-metric">Median frame-aligned elapsed</span><strong id="timing-before-frame">Pending</strong><strong id="timing-fixed-frame">Pending</strong>
+            </div>
+            <p>Synthetic fixture measurements from this browser. Frame-aligned elapsed is not a paint metric.</p>
+          </section>
+          <div class="result-actions">
+            <button class="button button-primary" type="button" data-run-all><span>Run all checks</span><span aria-hidden="true">→</span></button>
+            <a class="button button-secondary is-disabled" id="download-report" href="#" download="fixproof-evidence.json" aria-disabled="true" tabindex="-1">Download JSON</a>
+            <button class="text-button" id="copy-report" type="button" disabled>Copy report</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="method" id="method" aria-labelledby="method-title">
+        <div><p class="section-index">02 / METHOD</p><h2 id="method-title">Evidence, not theatre.</h2></div>
+        <div class="method-grid">
+          <article><span>01</span><h3>Same fixture</h3><p>Before and fixed views use the same deterministic synthetic content and search rules.</p></article>
+          <article><span>02</span><h3>Browser observed</h3><p>DOM work uses <code>performance.now()</code> and animation frames. Layout checks read rendered dimensions. Click checks operate the form.</p></article>
+          <article><span>03</span><h3>Honest limits</h3><p>These are local fixture measurements, not Lighthouse or Web Vitals. Device load and browser conditions affect timing.</p></article>
+        </div>
+      </section>
+
+      <section class="contact-strip" aria-labelledby="contact-title">
+        <div><p class="section-index">A SMALL, SHARP FIX</p><h2 id="contact-title">Have a small website issue?</h2></div>
+        <div class="contact-actions">
+          <a class="button button-light" href="https://x.com/bedi_samir53094" target="_blank" rel="noreferrer">Send the bug, budget and deadline <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/dresecuri-lee/fixproof/issues/new" target="_blank" rel="noreferrer">Or open a GitHub issue <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <a class="brand" href="#top"><svg aria-hidden="true" viewBox="0 0 34 34"><path d="M4 4h26v26H4zM10 10h14v5h-8v3h7v5h-7v5h-6z"/></svg><span>FixProof</span></a>
+      <p>Original synthetic fixtures. Built with AI assistance, reviewed and tested as a browser-first static project.</p>
+      <p>© 2026 FixProof</p>
+    </footer>
+    <div id="measurement-root" aria-hidden="true"></div>
+    <div class="sr-only" id="announcer" aria-live="assertive"></div>
+  </body>
+</html>
